@@ -29,6 +29,16 @@ public class SceneFader : MonoBehaviour
     {
         StartCoroutine(FadeOutAndLoadByBuildIndex(SceneManager.GetActiveScene().buildIndex, fadeDuration));
     }
+    
+    public void LoadNextScene(float fadeDuration)
+    {
+        StartCoroutine(FadeOutAndLoadByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1, fadeDuration));
+    }
+    
+    public void RestartGame(float fadeDuration)
+    {
+        StartCoroutine(FadeOutAndLoadByBuildIndex(0, fadeDuration));
+    }
 
     private IEnumerator FadeIn(float fadeDuration)
     {
